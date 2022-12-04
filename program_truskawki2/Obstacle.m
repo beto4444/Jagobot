@@ -1,0 +1,6 @@
+classdef Obstacle
+
+
+
+
+end

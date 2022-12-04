@@ -1,0 +1,100 @@
+#VRML_SIM R2022b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/appearances/protos/OldSteel.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.021559513399085985 0.013889146163822134 -0.999671085408013 3.001837697518169
+  position 2.988885059465245 0.25335451744619486 0.5538193122965379
+  follow "solid"
+}
+TexturedBackground {
+  texture "stadium"
+}
+TexturedBackgroundLight {
+  texture "mars"
+}
+Floor {
+  size 1 1
+}
+E-puck {
+  hidden position_0_0 32.07222055747456
+  hidden position_0_1 36.20678402530669
+  hidden linearVelocity_0 2.469157670968324e-07 0.05431112841195591 -7.100332920090506e-06
+  hidden angularVelocity_0 -0.0018093349017528951 -9.418264670859338e-05 0.1779812513418072
+  hidden rotation_1 0 -1 0 5.62689128560296
+  hidden linearVelocity_1 -0.0005960870932144361 0.04973072331603348 -1.6242975699752215e-05
+  hidden angularVelocity_1 -2.464711454093327 0.32066845404218597 0.17709909044773686
+  hidden rotation_2 0 -1 0 1.4923278177708297
+  hidden linearVelocity_2 0.0005993831005670159 0.05890676486171449 2.891945635230581e-06
+  hidden angularVelocity_2 -2.9672593688597204 0.38651929360337717 0.1773349164409921
+  translation 0.4506625203332042 0.423779930571868 -5.732485489320753e-05
+  rotation 0.00018553583017403815 -0.0017245330972648952 0.9999984957798946 1.4445169189840732
+}
+DEF BALL_GEOMETRY Solid {
+  translation 0.3765473877035302 0.000940446430847372 0.049178159361820885
+  rotation 0.2867155802717148 0.9421898320948764 -0.17341423334456235 -2.5028034921215356
+  children [
+    Shape {
+      appearance OldSteel {
+      }
+      geometry DEF BALL_GEOMETRY Sphere {
+        radius 0.05
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE BALL_GEOMETRY
+  physics Physics {
+  }
+  linearVelocity -0.015518230306480665 0.0022562828776959026 2.1697982476588779e-16
+  angularVelocity -0.04512565755391805 -0.31036460612961325 -0.04571423206206526
+}
+Solid {
+  translation 0.5 0 0.01
+  rotation 0 0 1 1.5707996938995747
+  children [
+    DEF WALL_SHAPE Shape {
+      appearance PBRAppearance {
+        baseColor 0 0 1
+        roughness 0.5
+        metalness 0
+      }
+      geometry Box {
+        size 1 0.025 0.1
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject USE WALL_SHAPE
+}
+Solid {
+  translation -0.5 0 0
+  rotation 0 0 1 1.5707996938995747
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(2)"
+  boundingObject USE WALL_SHAPE
+}
+Solid {
+  translation 0 0.5 0
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(3)"
+  boundingObject USE WALL_SHAPE
+}
+Solid {
+  translation 0 -0.5 0
+  children [
+    USE WALL_SHAPE
+  ]
+  name "solid(4)"
+  boundingObject USE WALL_SHAPE
+}

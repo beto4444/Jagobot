@@ -1,0 +1,1 @@
+wb_console_print("dupa", stream);
